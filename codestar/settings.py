@@ -27,8 +27,14 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Get the current hostname
+HOSTNAME = os.environ.get('HOSTNAME', '')
+
+# Set DEBUG based on the hostname
+if '.herokuapp.com' in HOSTNAME:
+    DEBUG = False
+else:
+    DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['8000-markchips-onlineshoppin-mnr9sbdocj0.ws.codeinstitute-ide.net',
                 '.herokuapp.com']
