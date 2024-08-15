@@ -27,11 +27,11 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# Get the current hostname
-HOSTNAME = os.environ.get('HOSTNAME', '')
+# Check if the app is running on Heroku
+IS_HEROKU = os.environ.get('IS_HEROKU', False)
 
-# Set DEBUG based on the hostname
-if '.herokuapp.com' in HOSTNAME:
+# Set DEBUG based on the environment
+if IS_HEROKU:
     DEBUG = False
 else:
     DEBUG = os.environ.get('DEBUG', 'True') == 'True'
