@@ -3050,13 +3050,13 @@ function indexOf(array, value) {
  * @returns {Boolean} Whether the next nonignorable token matches `needlePattern`
  */
 function isPatternNext(pattern, pos, flags, needlePattern) {
-    var inlineCommentPattern = '\\(\\?#[^)]*\\)';
-    var lineCommentPattern = '#[^#\\n]*';
+    var inlineREviewPattern = '\\(\\?#[^)]*\\)';
+    var lineReviewPattern = '#[^#\\n]*';
     var patternsToIgnore = flags.indexOf('x') > -1 ?
-        // Ignore any leading whitespace, line comments, and inline comments
-        ['\\s', lineCommentPattern, inlineCommentPattern] :
-        // Ignore any leading inline comments
-        [inlineCommentPattern];
+        // Ignore any leading whitespace, line reviews, and inline reviews
+        ['\\s', lineReviewPattern, inlineReviewPattern] :
+        // Ignore any leading inline review
+        [inlineReviewPattern];
     return nativ.test.call(
         new RegExp('^(?:' + patternsToIgnore.join('|') + ')*(?:' + needlePattern + ')'),
         pattern.slice(pos)
@@ -4517,7 +4517,7 @@ XRegExp.addToken(
 );
 
 /*
- * Comment pattern: `(?# )`. Inline comments are an alternative to the line comments allowed in
+ * review pattern: `(?# )`. Inline reviews are an alternative to the line reviews allowed in
  * free-spacing mode (flag x).
  */
 XRegExp.addToken(

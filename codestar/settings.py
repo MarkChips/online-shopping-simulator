@@ -28,9 +28,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-markchips-djangoblog-pjb6j2p42dm.ws.codeinstitute-ide.net',
+ALLOWED_HOSTS = ['8000-markchips-onlineshoppin-mnr9sbdocj0.ws.codeinstitute-ide.net',
                 '.herokuapp.com']
 
 
@@ -52,8 +52,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
-    'blog',
-    'about',
+    'item',
 ]
 
 SITE_ID = 1
@@ -140,7 +139,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GB'
 
 USE_I18N = True
 

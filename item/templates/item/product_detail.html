@@ -6,10 +6,8 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <!-- Product title goes in these h1 tags -->
+                <h1 class="post-title">{{ product.title }}</h1>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
@@ -34,21 +32,21 @@
             </div>
         </div>
     </div>
-    <!-- Displaying count of comments -->
+    <!-- Displaying count of reviews -->
     <div class="row">
         <div class="col-12">
             <strong class="text-secondary">
-                <i class="far fa-comments"></i> {{ comment_count }}
+                <i class="far fa-comments"></i> {{ review_count }}
             </strong>
         </div>
         <div class="col-12">
             <hr>
         </div>
     </div>
-    <!-- Displaying Comments -->
+    <!-- Displaying Reviews -->
     <div class="row">
         <div class="col-md-8 card mb-4 mt-3">
-            <h3>Comments:</h3>
+            <h3>Reviews:</h3>
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
@@ -77,7 +75,7 @@
                 {% endfor %}
             </div>
         </div>
-        <!-- Creating New Comments -->
+        <!-- Creating New Reviews -->
         <div class="col-md-4 card mb-4 mt-3">
             <div class="card-body">
                 {% if user.is_authenticated %}

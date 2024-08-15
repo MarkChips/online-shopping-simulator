@@ -10,27 +10,27 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for post in post_list %}
+                {% for product in product_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
+                                {% if "placeholder" in product.featured_image.url %}
                                 <img src="{% static 'images/default.jpg' %}" alt="placeholder image" class="card-img-top">
                                 {% else %}
-                                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="card-img-top">
+                                <img src="{{ product.featured_image.url }}" alt="{{ product.title }}" class="card-img-top">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                    <p class="author">Author: {{ product.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
+                            <a href="{% url 'product_detail' product.slug %}" class="post-link">
+                                <h2 class="card-title">{{ product.title }}</h2>
+                                <p class="card-text">{{ product.excerpt }}</p>
                             </a>
 
                             <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
+                            <p class="card-text text-muted h6">{{ product.created_on}}
                             </p>
                         </div>
                     </div>
@@ -59,7 +59,4 @@
 </div>
 
 <!-- index.html content ends here -->
-{% endblock %}
-{% block copyright %}
-    Copyright 2024 Mark Chipperfield
 {% endblock %}
