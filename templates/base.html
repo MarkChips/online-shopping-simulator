@@ -4,6 +4,8 @@
 {% url 'acount_login' as login_url %}
 {% url 'acount_signup' as signup_url %}
 {% url 'acount_logout' as logout_url %}
+{% url 'products' as products_url %}
+{% url 'cart' as cart_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -44,6 +46,12 @@
                         <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
                             href="{% url 'home' %}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'products' %}">Products</a>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}">Shopping cart</a>
+                      </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
