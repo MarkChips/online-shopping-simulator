@@ -2,11 +2,102 @@ body {
     background-color: #F9FAFC;
 }
 
+.img {
+    display: block;
+}
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
+}
+section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.hero {
+    background-color: #303030;
+    color: white;
+}
+
+/*.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}*/
+
+.box-element.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-element.product:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image Styling */
+.thumbnail {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Product Title */
+.box-element.product h6 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons Styling */
+.btn-outline-secondary.add-btn {
+    margin-right: 0.5rem;
+    border-radius: 5px;
+}
+
+.btn-outline-secondary.add-btn:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-outline-success {
+    border-radius: 5px;
+}
+
+.btn-outline-success:hover {
+    background-color: #d4edda;
+}
+
+/* Product Price Styling */
+.box-element.product h4 {
+    color: #28a745;
+    margin-top: 1rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .thumbnail {
+        max-width: 100px;
+    }
+
+    .box-element.product h6 {
+        font-size: 1rem;
+    }
+
+    .box-element.product h4 {
+        font-size: 1.2rem;
+    }
 }
 
 .red-o {
@@ -162,4 +253,18 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
 }
