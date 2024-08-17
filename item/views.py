@@ -153,3 +153,12 @@ def update_cart_item(request, product_id, quantity):
 def home(request):
     products = Product.objects.all()
     return render(request, 'store/store.html', {'products': products})
+
+def product_details(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    reviews = Review.objects.filter(product=product)
+    context = {
+        'product': product,
+        'reviews': reviews
+    }
+    return render(request, 'product_detail.html', context)
