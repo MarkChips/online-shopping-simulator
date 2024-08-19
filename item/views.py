@@ -106,3 +106,59 @@ def review_delete(request, slug, review_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own reviews!')
 
     return HttpResponseRedirect(reverse('product_detail', args=[slug]))
+
+def store_view(request):
+    products = Product.objects.all()
+    return render(request, 'store/store.html', {'products': products})
+
+
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if not created:
+        cart_item.quantity += 1
+    cart_item.save()
+
+    return redirect('cart_detail')
+
+
+def cart_detail(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    context = {
+        'cart': cart
+    }
+    return render(request, 'store/cart.html', context)
+
+
+def remove_from_cart(request, product_id):
+    cart = get_object_or_404(Cart, user=request.user)
+    product = get_object_or_404(Product, id=product_id)
+    cart_item = get_object_or_404(CartItem, cart=cart, product=product)
+    cart_item.delete()
+
+    return redirect('cart_detail')
+
+
+def update_cart_item(request, product_id, quantity):
+    cart = get_object_or_404(Cart, user=request.user)
+    product = get_object_or_404(Product, id=product_id)
+    cart_item = get_object_or_404(CartItem, cart=cart, product=product)
+    cart_item.quantity = quantity
+    cart_item.save()
+
+    return redirect('cart_detail')
+
+def home(request):
+    products = Product.objects.all()
+    return render(request, 'store/store.html', {'products': products})
+
+def product_details(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    reviews = Review.objects.filter(product=product)
+    context = {
+        'product': product,
+        'reviews': reviews
+    }
+    return render(request, 'product_detail.html', context)

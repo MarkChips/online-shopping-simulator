@@ -36,7 +36,7 @@ if IS_HEROKU:
 else:
     DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['8000-markchips-onlineshoppin-mnr9sbdocj0.ws.codeinstitute-ide.net',
+ALLOWED_HOSTS = ['8000-markchips-onlineshoppin-056lceilh0p.ws-eu115.gitpod.io',
                 '.herokuapp.com']
 
 

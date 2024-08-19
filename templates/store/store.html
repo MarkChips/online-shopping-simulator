@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero bg-dark text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Welcome to the Shop</h1>
+            <p class="lead">Discover the best products curated just for you</p>
+            <a href="#products" class="btn btn-primary btn-lg">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+
+<section>
+	<div class="row">
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{% static 'images/headset.png' %}">
+			<div class="box-element product">
+				<h6><strong>Product</strong></h6>
+				<hr>
+
+				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+				<a class="btn btn-outline-success" href="#">View</a>
+				<h4 style="display: inline-block; float: right"><strong>£20</strong></h4>
+
+			</div>
+		</div>
+
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{% static 'images/headset.png' %}">
+			<div class="box-element product">
+				<h6><strong>Product</strong></h6>
+				<hr>
+				
+				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+				<a class="btn btn-outline-success" href="#">View</a>
+				<h4 style="display: inline-block; float: right"><strong>£20</strong></h4>
+				
+			</div>
+		</div>
+
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{% static 'images/headset.png' %}">
+			<div class="box-element product">
+				<h6><strong>Product</strong></h6>
+				<hr>
+
+				<button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+				<a class="btn btn-outline-success" href="#">View</a>
+				<h4 style="display: inline-block; float: right"><strong>£20</strong></h4>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Products</h2>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text"><strong>${{ product.price }}</strong></p>
+                            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Product</a>
+                            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-center">No products available.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

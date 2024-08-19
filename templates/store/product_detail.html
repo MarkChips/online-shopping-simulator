@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <h4 class="text-success"><strong>${{ product.price }}</strong></h4>
+            <button class="btn btn-primary my-3">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3>Customer Reviews</h3>
+            <hr>
+            {% for review in reviews %}
+            <div class="review mb-4">
+                <h5>{{ review.customer_name }} <small class="text-muted"> - {{ review.created_at }}</small></h5>
+                <div class="rating mb-2">
+                    {% for i in 1|to_range:5 %}
+                        {% if i <= review.rating %}
+                            <span class="text-warning">★</span>
+                        {% else %}
+                            <span class="text-secondary">★</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <p>{{ review.comment }}</p>
+            </div>
+            <hr>
+            {% empty %}
+            <p>No reviews yet. Be the first to review this product!</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
