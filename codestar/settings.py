@@ -116,6 +116,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
+    "https://*.ws-eu115.gitpod.io",
     "https://*.ws.codeinstitute-ide.net",
     "https://*.herokuapp.com"
 ]

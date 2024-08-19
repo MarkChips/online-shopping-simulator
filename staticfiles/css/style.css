@@ -80,7 +80,28 @@ section {
 }
 .row .col-lg-4 {
     border: 1px solid #303030;
+    border-radius: 12px;
+    margin-right: 10px;
 }
+
+.row .col-lg-4:last-child {
+    margin-right: 0px;
+}
+
+/* cart */
+.cart-row {
+    display: flex;
+    align-items: center;
+}
+
+.cart-row > div {
+    flex: 1;
+}
+
+.cart-row .row-image {
+    max-width: 150px;
+}
+
 /* Product Price Styling */
 .box-element.product h4 {
     color: #28a745;
