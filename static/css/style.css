@@ -76,9 +76,11 @@ section {
 }
 
 .btn-outline-success:hover {
-    background-color: #d4edda;
+    background-color: #303030;
 }
-
+.row .col-lg-4 {
+    border: 1px solid #303030;
+}
 /* Product Price Styling */
 .box-element.product h4 {
     color: #28a745;
