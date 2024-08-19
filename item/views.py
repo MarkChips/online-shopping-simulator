@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Product, Review, Cart, CartItem
+from .models import Product, Review, Cart, CartItem, Order, OrderItem
 from .forms import ReviewForm
 
 # Create your views here.
@@ -162,3 +162,11 @@ def product_details(request, product_id):
         'reviews': reviews
     }
     return render(request, 'product_detail.html', context)
+
+def checkout(request):
+    order = request.user.order  # Replace this with your actual logic to get the user's order
+
+    context = {
+        'order': order
+    }
+    return render(request, 'checkout.html', context)

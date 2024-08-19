@@ -78,15 +78,14 @@ section {
 .btn-outline-success:hover {
     background-color: #303030;
 }
-.row .col-lg-4 {
+/* .row .col-lg-4 {
     border: 1px solid #303030;
     border-radius: 12px;
-    margin-right: 10px;
 }
 
 .row .col-lg-4:last-child {
     margin-right: 0px;
-}
+}*/
 
 /* cart */
 .cart-row {
