@@ -73,8 +73,8 @@
                         <h6 class="card-title"><strong>{{ product.title }}</strong></h6>
                         <hr>
                         <p class="card-text">{{ product.content }}</p>
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-secondary add-btn">Add to cart</a>
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-success">View</a>
+                        <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline-secondary add-btn">Add to cart</a>
+                        <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline-success">View</a>
                         <h4 class="d-inline-block ms-5"><strong>${{ product.price }}</strong></h4>
                     </div>
                 </div>

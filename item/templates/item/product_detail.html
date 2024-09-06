@@ -10,10 +10,10 @@
                 <h1 class="post-title">{{ product.title }}</h1>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" alt="placeholder image" class="card-img-top scale">
+                {% if "placeholder" in product.featured_image.url %}
+                <img src="{% static 'images/headset.png' %}" alt="placeholder image" class="card-img-top scale">
                 {% else %}
-                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="card-img-top scale">
+                <img src="{{ product.featured_image.url }}" alt="{{ post.title }}" class="card-img-top scale">
                 {% endif %}
             </div>
         </div>
