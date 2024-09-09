@@ -42,7 +42,7 @@ def product_detail(request, slug):
             review.product = product
             review.save()
             messages.add_message(
-                request, messages.SUCCESS, 'Review submitted and awaiting approval'
+                request, messages.SUCCESS, 'Review submitted'
             )
 
     review_form = ReviewForm()

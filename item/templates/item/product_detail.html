@@ -55,8 +55,7 @@
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each review in reviews -->
                 {% for review in reviews %}
-                <div class="p-2 reviews {% if not review.approved and review.author == user %}faded
-                {% elif not review.approved %}d-none{% endif %}">
+                <div class="p-2">
                     <p class="font-weight-bold">
                         {{ review.author }}
                         <span class="font-weight-normal">
@@ -66,11 +65,6 @@
                     <div id="review{{ review.id }}">
                         {{ review.body | linebreaks }}
                     </div>
-                    {% if not review.approved and review.author == user %}
-                    <p class="approval">
-                        This review is awaiting approval
-                    </p>
-                    {% endif %}
                     {% if user.is_authenticated and review.author == user %}
                     <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
                     <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
