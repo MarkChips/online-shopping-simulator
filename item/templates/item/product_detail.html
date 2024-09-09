@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load custom_filters %}
+
 
 <div class="masthead">
     <div class="container">
@@ -56,12 +58,16 @@
                 <!-- We want a for loop inside the empty control tags to iterate through each review in reviews -->
                 {% for review in reviews %}
                 <div class="p-2">
-                    <p class="font-weight-bold">
+                    <p class="font-weight-bold mb-0">
                         {{ review.author }}
                         <span class="font-weight-normal">
                             {{ review.created_on }}
                         </span> wrote:
                     </p>
+                    <div class="star-rating">
+                        <span style="width: {{ review.rating|mul:20 }}%"></span>
+                    </div>
+                    <span class="numeric-rating">({{ review.rating }}/5)</span>
                     <div id="review{{ review.id }}">
                         {{ review.body | linebreaks }}
                     </div>

@@ -5,16 +5,19 @@ body {
 .img {
     display: block;
 }
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #4A4A4F;
 }
+
 section {
     padding-top: 40px;
     padding-bottom: 40px;
 }
+
 .hero {
     background-color: #303030;
     color: white;
@@ -40,6 +43,33 @@ section {
 
 .box-element.product:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* review star ratings */
+.star-rating {
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+}
+
+.star-rating::before {
+    content: "☆☆☆☆☆";
+    font-size: 24px;
+    color: #ddd;
+}
+
+.star-rating span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.star-rating span::before {
+    content: "★★★★★";
+    color: #ffd700;
+    font-size: 24px;
 }
 
 /* Product Image Styling */
@@ -78,6 +108,7 @@ section {
 .btn-outline-success:hover {
     background-color: #303030;
 }
+
 /* .row .col-lg-4 {
     border: 1px solid #303030;
     border-radius: 12px;
@@ -93,7 +124,7 @@ section {
     align-items: center;
 }
 
-.cart-row > div {
+.cart-row>div {
     flex: 1;
 }
 
@@ -277,7 +308,7 @@ section {
     color: rgb(222, 146, 168);
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) {
+.table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #f8f9fa;
 }
 
