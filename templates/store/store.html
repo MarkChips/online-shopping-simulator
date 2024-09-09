@@ -61,7 +61,7 @@
             <h2 class="text-center mb-4">Our Products</h2>
             <div class="row">
                 {% for product in products %}
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-5">
                     <div style="height: 250px;">
                         {% if "placeholder" in product.featured_image.url %}
                         <img src="{% static 'images/headset.png' %}" alt="placeholder image" class="img-thumbnail mh-100">
