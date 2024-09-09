@@ -1,6 +1,6 @@
 const editButtons = document.getElementsByClassName("btn-edit");
-const commentText = document.getElementById("id_body");
-const commentForm = document.getElementById("commentForm");
+const reviewText = document.getElementById("id_body");
+const reviewForm = document.getElementById("reviewForm");
 const submitButton = document.getElementById("submitButton");
 
 const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
@@ -11,19 +11,19 @@ const deleteConfirm = document.getElementById("deleteConfirm");
  * Initializes edit functionality for the provided edit buttons.
  * 
  * For each button in the 'editButtons' collection:
- * - Retrieves the associated comment's ID upon click.
- * - Fetches the content of the corresponding comment.
- * - Populates the 'commentText' input/textarea with the comment's content for editing.
+ * - Retrieves the associated review's ID upon click.
+ * - Fetches the content of the corresponding review.
+ * - Populates the 'reviewText' input/textarea with the review's content for editing.
  * - Updates the submit button's text to "Update".
- * - Sets the form's action attribute to the 'edit_comment/{commentId}' endpoint.
+ * - Sets the form's action attribute to the 'edit_review/{reviewId}' endpoint.
  */
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-        let commentId = e.target.getAttribute("data-comment_id");
-        let commentContent = document.getElementById(`comment${commentId}`).innerText;
-        commentText.value = commentContent;
+        let reviewId = e.target.getAttribute("data-review_id");
+        let reviewContent = document.getElementById(`review${reviewId}`).innerText;
+        reviewText.value = reviewContent;
         submitButton.innerText = "Update";
-        commentForm.setAttribute("action", `edit_comment/${commentId}`);
+        reviewForm.setAttribute("action", `edit_review/${reviewId}`);
     });
 }
 
@@ -31,14 +31,14 @@ for (let button of editButtons) {
  * Initializes deletion functionality for the provided delete buttons.
  * 
  * For each button in the 'deleteButtons' collection:
- * - Retrieves the associated comment's ID upon click.
- * - Updates the 'deleteConfirm' link's href to point to the deletion endpoint for the specific comment.
+ * - Retrieves the associated review's ID upon click.
+ * - Updates the 'deleteConfirm' link's href to point to the deletion endpoint for the specific review.
  * - Displays a confirmation modal ('deleteModal') to prompt the user for confirmation before deletion.
  */
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
-        let commentId = e.target.getAttribute("data-comment_id");
-        deleteConfirm.href = `delete_comment/${commentId}`;
+        let reviewId = e.target.getAttribute("data-review_id");
+        deleteConfirm.href = `delete_review/${reviewId}`;
         deleteModal.show();
     });
 }

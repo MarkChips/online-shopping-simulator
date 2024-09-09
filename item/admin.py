@@ -9,7 +9,7 @@ class ProductAdmin(SummernoteModelAdmin):
     list_display = ('title', 'slug')
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('content',)
+    summernote_fields = ('features',)
 
 
 # Register your models here.

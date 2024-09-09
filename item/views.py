@@ -32,7 +32,7 @@ def product_detail(request, slug):
     queryset = Product.objects.all()
     product = get_object_or_404(queryset, slug=slug)
     reviews = product.reviews.all().order_by("-created_on")
-    review_count = product.reviews.filter(approved=True).count()
+    review_count = product.reviews.all().count()
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST)
@@ -42,7 +42,7 @@ def product_detail(request, slug):
             review.product = product
             review.save()
             messages.add_message(
-                request, messages.SUCCESS, 'Review submitted and awaiting approval'
+                request, messages.SUCCESS, 'Review submitted'
             )
 
     review_form = ReviewForm()
